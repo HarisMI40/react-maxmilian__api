@@ -24,8 +24,15 @@ function App() {
     setMovies(movieList);
     setIsLoading(false);
   }
-
-  // console.log(movies);
+  // let content;
+  // if(!isLoading && movies.length > 0){
+  //   content = <MoviesList movies={movies} />
+  // }else if(!isLoading && movies.length === 0){
+  //   content = <p>Found No Movies</p>;
+  // }else if(isLoading){
+  //   content = <p> Loading .... </p>;
+  // }
+  // setelah dicoba, ternyata lebih bagus menggunakan yang di bawah, lebih cepat dan gak error
 
   return (
     <React.Fragment>
