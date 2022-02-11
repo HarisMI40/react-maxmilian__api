@@ -2,10 +2,11 @@ import React,{useState} from 'react';
 
 import MoviesList from './components/MoviesList';
 import './App.css';
+import PulseLoader from "react-spinners/PulseLoader";
 
 function App() {
   const [movies, setMovies] = useState([]);
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
 
   async function fetchDataMovieHandler() {
     setIsLoading(true);
@@ -33,6 +34,7 @@ function App() {
   //   content = <p> Loading .... </p>;
   // }
   // setelah dicoba, ternyata lebih bagus menggunakan yang di bawah, lebih cepat dan gak error
+  // let [loading, setLoading] = useState(true);
 
   return (
     <React.Fragment>
@@ -42,7 +44,8 @@ function App() {
       <section>
         {!isLoading && movies.length > 0 && <MoviesList movies={movies} />}
         {!isLoading && movies.length === 0 && <p>Found No Movies</p>}
-        {isLoading && <p> Loading .... </p>}
+        {isLoading && <PulseLoader color={"#230052"} loading={isLoading} size={20} />}
+      
       </section>
     </React.Fragment>
   );
